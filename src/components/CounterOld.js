@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class CounterOld extends Component {
+    // ------------------------------------------
+    // 컴포넌트 초기 생성
+    // ------------------------------------------
+
     // 만약에 class fields 를 사용하지 않는다면 다음과 같이 사용합니다.
 
     // class fields 도 사용하고 constructor 도 사용하게 된다면, 어떤 부분이 더욱 늦게 설정될까요?
@@ -18,6 +22,30 @@ class CounterOld extends Component {
         this.state = {
             number: 0
         }
+        console.log('constructor');
+    }
+
+    componentWillMount() {
+        console.log('componentWillMount (deprecated)');
+    }
+
+    componentDidMount() {
+        console.log('componentDidMount');
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        // 5 의 배수라면 리렌더링 하지 않음
+        console.log('shouldComponentUpdate');
+        if (nextState.number % 5 === 0) return false;
+        return true;
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        console.log('componentWillUpdate');
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log('componentDidUpdate');
     }
 
     // handleIncrease = () => {

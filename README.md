@@ -7,7 +7,7 @@ yarn add redux react-redux
 ```
 
 ## Directories
-> - **actions**: 액션타입, 액션생성자 파일이 저장됩니
+> - **actions**: 액션타입, 액션생성자 파일이 저장됩니다
 > - **components**: 뷰만을 담당하는 presentational 컴포넌트들이 저장됩니다
 > - **containers**: store 에 접근이 닿는 container 컴포넌트들이 저장됩니다
 > - **reducers**: 스토어의 기본상태와, 상태의 업데이트를 담당하는 리듀서 파일들이 저장됩니다
@@ -58,6 +58,50 @@ export const setColor = (color) => ({
 });
 
 ```
+
+### Reducer (src/reducers/index.js)
+```angular2
+import * as types from '../actions/ActionTypes';
+
+// 초기 상태를 정의합니다
+const initialState = {
+    color: 'black',
+    number: 0
+};
+
+/* 
+    리듀서 함수를 정의합니다. 리듀서는 state 와 action 을 파라미터로 받습니다.
+    state 가 undefined 일때 (스토어가 생성될때) state 의 기본값을 initialState 로 사용합니다.
+    action.type 에 따라 다른 작업을 하고, 새 상태를 만들어서 반환합니다.
+    이 때 주의 할 점은 state 를 직접 수정하면 안되고,
+    기존 상태 값에 원하는 값을 덮어쓴 새로운 객체를 만들어서 반환해야합니다.
+*/
+
+function counter(state = initialState, action) {
+    switch (action.type) {
+        case types.INCREMENT: 
+            return {
+                ...state,
+                number: state.number + 1
+            };
+        case types.DECREMENT:
+            return {
+                ...state,
+                number: state.number - 1
+            };
+        case types.SET_COLOR:
+            return {
+                ...state,
+                color: action.color
+            };
+        default:
+            return state;
+    }
+};
+
+export default counter;
+```
+
 
 # Manual
 

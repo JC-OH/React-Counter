@@ -121,6 +121,31 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
+## Provider (src/index.js)
+Provider 는 react-redux 라이브러리에 내장되어있는, 리액트 앱에 store 를 손쉽게 연동 할 수 있도록 도와주는 컴포넌트입니다.
+```angular2
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './containers/App';
+import './index.css';
+
+// Redux 관련 불러오기
+import { createStore } from 'redux'
+import reducers from './reducers';
+import { Provider } from 'react-redux';
+
+// 스토어 생성
+const store = createStore(reducers);
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
+);
+```
+
 # Manual
 
 ## Available Scripts

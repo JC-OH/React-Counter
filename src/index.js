@@ -11,7 +11,8 @@ import reducers from './reducers';
 import { Provider } from 'react-redux';
 
 // 스토어 생성
-const store = createStore(reducers);
+// const store = createStore(reducers);
+const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 
 // 이 컴포넌트를 불러온다음에, 연동 할 컴포넌트를 감싸준다음에 Provider 컴포넌트의 props로 store 값을 설정해주면 됩니다.

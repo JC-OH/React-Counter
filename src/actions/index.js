@@ -12,7 +12,7 @@
 import * as types from './ActionTypes';
 
 export const create = (color) => ({
-    type: types.REMOVE,
+    type: types.CREATE,
     color: color
 })
 

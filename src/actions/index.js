@@ -37,3 +37,41 @@ export const setColor = (index,color) => ({
     color: color
 });
 
+// export const incrementAsync = function (index) {
+//     return dispatch => { // dispatch 를 파라미터로 가지는 함수를 리턴합니다.
+//         setTimeout(() => {
+//             // 1 초뒤 dispatch 합니다
+//             dispatch(increment(index));
+//         }, 1000);
+//     }
+// }
+
+export const incrementAsync = (index) => dispatch => {
+    // 1초 뒤 액션 디스패치
+    setTimeout(
+        () => { dispatch(increment(index)) },
+        1000
+    );
+}
+
+export const decrementAsync = (index) => dispatch => {
+    // 1초 뒤 액션 디스패치
+    setTimeout(
+        () => { dispatch(decrement(index)) },
+        1000
+    );
+}
+
+
+// function incrementIfOdd() {
+//     return (dispatch, getState) => {
+//         const { counter } = getState();
+//
+//         if (counter % 2 === 0) {
+//             return;
+//         }
+//
+//         dispatch(increment());
+//     };
+// }
+

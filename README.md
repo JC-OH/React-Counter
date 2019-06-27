@@ -4,6 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Install Dependencies
 ```angular2
 yarn add redux react-redux
+yarn add redux-thunk
 ```
 
 ## Directories

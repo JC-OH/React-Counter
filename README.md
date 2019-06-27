@@ -5,6 +5,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ```angular2
 yarn add redux react-redux
 yarn add redux-thunk
+yarn add axios
+yarn add redux-actions
 ```
 
 ## Directories
